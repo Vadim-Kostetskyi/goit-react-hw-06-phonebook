@@ -1,4 +1,25 @@
-const ContactList = ({ contacts, visible }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteContact } from 'redax/Slise';
+
+const ContactList = () => {
+  const contacts = useSelector(state => state.value.contacts);
+  const filterValue = useSelector(state => state.value.filter);
+
+  const dispach = useDispatch();
+
+  const filterNames = () => {
+    return contacts.filter(el => {
+      return el.name.toLowerCase().includes(filterValue.toLowerCase());
+    });
+  };
+
+  const deleteContactt = id => {
+    dispach(deleteContact(contacts.filter(item => item.id !== id)));
+    console.log(contacts.filter(item => item.id !== id));
+  };
+
+  const visible = filterNames();
+
   return (
     <ul className="list">
       {visible.map(({ name, id, number }) => {
@@ -7,7 +28,7 @@ const ContactList = ({ contacts, visible }) => {
             {name}: {number}
             <button
               className="button contact-butoon"
-              onClick={() => contacts(id)}
+              onClick={() => deleteContactt(id)}
             >
               Delete
             </button>
