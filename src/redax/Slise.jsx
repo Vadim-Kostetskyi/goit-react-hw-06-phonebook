@@ -27,7 +27,7 @@ export const mySlice = createSlice({
 });
 
 const persistConfig = {
-  key: 'root',
+  key: 'contacts',
   storage,
 };
 
@@ -37,3 +37,5 @@ export const persistClickReduser = persistReducer(
 );
 
 export const { addContact, deleteContact, filter } = mySlice.actions;
+
+export const saveContacts = state => state.value.contacts;

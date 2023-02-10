@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redax/Slise';
+import { addContact, saveContacts } from 'redax/Slise';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 
 export const ContactForm = () => {
   const dispach = useDispatch();
-  const contacts = useSelector(state => state.value.contacts);
+  const contacts = useSelector(saveContacts);
 
   const [name, setName] = useState('');
   const [number, setnumber] = useState('');
