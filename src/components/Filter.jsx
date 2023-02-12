@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { filter } from 'redax/Slise';
+import { filter } from 'redux/Slise';
 import { useState } from 'react';
 
 const Filter = () => {

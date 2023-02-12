@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact, saveContacts } from 'redax/Slise';
+import { addContact, saveContacts } from 'redux/Slise';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 
@@ -28,7 +28,6 @@ export const ContactForm = () => {
   };
 
   const handleSubmit = el => {
-    console.log(el);
     el.preventDefault();
     const unique = contacts.map(elem =>
       name.toLowerCase() !== elem.name.toLowerCase() ? true : false

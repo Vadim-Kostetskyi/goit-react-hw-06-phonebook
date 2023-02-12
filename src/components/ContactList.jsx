@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redax/Slise';
+import { deleteContact } from 'redux/Slise';
 
 const ContactList = () => {
   const contacts = useSelector(state => state.value.contacts);
@@ -15,7 +15,6 @@ const ContactList = () => {
 
   const deleteContactt = id => {
     dispach(deleteContact(contacts.filter(item => item.id !== id)));
-    console.log(contacts.filter(item => item.id !== id));
   };
 
   const visible = filterNames();
